@@ -8,4 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class Buyer extends Model
 {
     use HasFactory;
+
+    public static function refundPreference()
+    {
+        return [
+            'credit',
+            'cc'
+        ];
+    }
+
 }

@@ -22,7 +22,13 @@ class PurchaseFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'coop_id' => \App\Models\Coop::factory(),
+            'buyer_id' => \App\Models\Buyer::factory(),
+            'amount' => $this->faker->randomFloat(2, 0, 75000),
+            'package_quantity' => $this->faker->numberBetween($min = 1, $max = 20),
+            'package_id' => $this->faker->numberBetween($min = 1, $max = 20),
+            'banking_customer_token' => $this->faker->randomDigit(),
+            'coop_canceled' => $this->faker->boolean()
         ];
     }
 }

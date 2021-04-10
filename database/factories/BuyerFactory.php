@@ -22,6 +22,11 @@ class BuyerFactory extends Factory
      */
     public function definition()
     {
-        //
+        
+        return [
+            'username' => $this->faker->word,
+            'email' => $this->faker->safeEmail,
+            'refund_pref' => $this->faker->randomElement(\App\Models\Buyer::refundPreference()),
+        ];
     }
 }

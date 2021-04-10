@@ -9,6 +9,8 @@ class Purchase extends Model
 {
     use HasFactory;
 
+    protected $with = ['transactions', 'purchaseTransaction', 'refundTransaction', 'buyer'];
+
     public function transactions()
     {
         return $this->hasMany(Transaction::class);
@@ -22,5 +24,10 @@ class Purchase extends Model
     public function refundTransaction()
     {
         return $this->hasOne(Transaction::class)->ofType('refund');
+    }
+
+    public function buyer()
+    {
+        return $this->belongsTo(Buyer::class);
     }
 }
